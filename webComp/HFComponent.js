@@ -27,7 +27,8 @@ class HFComponent extends HTMLElement {
         this.shadowRoot = this.attachShadow({mode: 'open'});
         // initialize event handlers        
         Resumability.initialize(this.shadowRoot);
-        // clone template content nodes to the shadow DOM        this.template().then(element => this.shadowRoot.innerHTML = element);
+        // clone template content nodes to the shadow DOM        
+        this.template().then(element => this.shadowRoot.innerHTML = element);
         this.render = this.debounce(this.render.bind(this), 100);
         this.waitForVisibility = new Promise((resolve) => {
             this.setVisible = () => {
